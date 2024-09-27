@@ -2,6 +2,17 @@
 
 This example demonstrates how to create a horizontal listview using Xamarin.Forms SfListView.
 
+```
+<syncfusion:SfListView x:Name="listView" Orientation="Horizontal" Padding="10,10,10,10"
+                                   SelectionMode="None" Grid.Row="1"
+                                   ItemsSource="{Binding Gallerynfo}"
+                                   ItemSpacing="3">
+                <syncfusion:SfListView.ItemTemplate>
+                  <!-- your content Template here..-->
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>
+```
+
 See [How to create a horizontal listview in Xamarin.Forms](https://www.syncfusion.com/kb/9631/how-to-create-a-horizontal-listview-in-xamarin-forms) for more details.
 ## <a name="requirements-to-run-the-demo"></a>Requirements to run the demo ##
 
