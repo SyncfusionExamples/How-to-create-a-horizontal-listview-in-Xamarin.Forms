@@ -2,6 +2,83 @@
 
 This example demonstrates how to create a horizontal listview using Xamarin.Forms SfListView.
 
+## Sample
+```xaml
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="headerGrid" BackgroundColor="#FFEEEEF2" HeightRequest="45">
+                <Label LineBreakMode="NoWrap"
+             Text="Photo Gallery" FontAttributes="Bold"
+             FontSize="16" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Grid>
+            <syncfusion:SfListView x:Name="listView" Orientation="Horizontal" Padding="10,10,10,10"
+                                   SelectionMode="None" Grid.Row="1"
+                                   ItemsSource="{Binding Gallerynfo}"
+                                   ItemSpacing="3">
+                <syncfusion:SfListView.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On  Platform="Android">
+                            <OnIdiom x:TypeArguments="x:Double"  Phone="220" Tablet="220" />
+                        </On>
+                        <On  Platform="iOS">
+                            <OnIdiom x:TypeArguments="x:Double" Phone="170" Tablet="280" />
+                        </On>
+                        <On  Platform="UWP">
+                            <OnIdiom x:TypeArguments="x:Double"  Desktop="220" Phone="200" Tablet="220" />
+                        </On>
+                        <On  Platform="macOS" Value="220"/>
+                    </OnPlatform>
+                </syncfusion:SfListView.HeightRequest>
+
+                <syncfusion:SfListView.ItemSize>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On  Platform="Android">
+                            <OnIdiom x:TypeArguments="x:Double"  Phone="173" Tablet="180" />
+                        </On>
+                        <On  Platform="iOS">
+                            <OnIdiom x:TypeArguments="x:Double" Phone="125" Tablet="250" />
+                        </On>
+                        <On  Platform="UWP">
+                            <OnIdiom x:TypeArguments="x:Double"  Desktop="170" Phone="160" Tablet="170" />
+                        </On>
+                        <On  Platform="macOS" Value="170"/>
+                    </OnPlatform>
+                </syncfusion:SfListView.ItemSize>
+
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#EEEEEE" Padding="2">
+                            <Frame.HasShadow>
+                                <OnPlatform x:TypeArguments="x:Boolean">
+                                    <On Platform="Android" Value="True"/>
+                                    <On Platform="UWP" Value="True"/>
+                                    <On Platform="iOS,macOS" Value="False"/>
+                                </OnPlatform>
+                            </Frame.HasShadow>
+                            <Grid RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="48" />
+                                </Grid.RowDefinitions>
+                                <Image Source="{Binding Image}" Aspect="Fill"/>
+                                <Label Grid.Row="1" Text="{Binding ImageTitle}"
+                                       LineBreakMode="WordWrap"
+                                       HorizontalTextAlignment="Start"
+                                       VerticalTextAlignment="Center"
+                                       TextColor="Black" Opacity="0.87"
+                                       Margin="16,0,0,0" FontSize="16">
+                                </Label>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>
+        </Grid>
+```
+
 See [How to create a horizontal listview in Xamarin.Forms](https://www.syncfusion.com/kb/9631/how-to-create-a-horizontal-listview-in-xamarin-forms) for more details.
 ## <a name="requirements-to-run-the-demo"></a>Requirements to run the demo ##
 
